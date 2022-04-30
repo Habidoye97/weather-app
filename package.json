@@ -1,0 +1,30 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "",
+  "private": "true",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Habidoye97/weather-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Habidoye97/weather-app/issues"
+  },
+  "homepage": "https://github.com/Habidoye97/weather-app#readme",
+  "devDependencies": {
+    "css-loader": "^6.7.1",
+    "style-loader": "^3.3.1",
+    "webpack-cli": "^4.9.2",
+    "wepack": "^0.0.1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
