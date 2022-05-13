@@ -1,7 +1,16 @@
-body {
-  background-color: red;
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-svg {
-  height: 50px;
+body {
+  background-image: url(../dist/pexels-lisa-fotios-1107717.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 2.5rem;
 }
