@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
 
 body {
@@ -13,4 +14,50 @@ body {
   background-size: cover;
   background-attachment: fixed;
   padding: 2.5rem;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
 }
+
+.weather-info {
+  max-width: 55%;
+}
+
+.weather-info_description {
+  font-size: 4rem;
+  line-height: 1;
+  font-weight: 500;
+}
+
+.weather-info_city,
+.weather-info_country {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.weather-info_date, 
+.weatehr-info_time {
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.weather-info_temperature {
+  font-size: 5rem;
+  font-weight: 700;
+
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.weather-details {
+  display: flex;
+}
+
+.weather-details-icon {
+  width: 2rem;
+}
+
+
+

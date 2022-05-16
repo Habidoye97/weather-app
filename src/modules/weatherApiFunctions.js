@@ -22,7 +22,7 @@ async function fetchWeatherInfoWithCoord (lat, lon) {
   }
 }
 
-const output = {};
+let output = {};
 
 function perpareData (rawData) {
   if(rawData.cod === '404') {
@@ -44,6 +44,8 @@ function perpareData (rawData) {
   output.maxTemp = rawData.main.temp_max;
   output.humidity = rawData.main.humidity;
   output.pressure = rawData.main.pressure;
+  output.dt = rawData.dt
+  output.timezone = rawData.timezone
 }
 
 async function getData (data) {
