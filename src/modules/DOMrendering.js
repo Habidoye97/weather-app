@@ -1,12 +1,20 @@
 
 import { capitalizeWord, formatDate, formatTime} from "./Utils";
+import { output } from "./weatherApiFunctions";
 
 function renderWeatherInformation (renderedData, units) {
-  let tempUnit = '°C'
+  let tempUnit = 'K'
 
   if (units === 'imperial') {
     tempUnit = '°F'
   }
+
+  if (units === 'metric') {
+    tempUnit = '°C'
+  }
+
+  console.log(output.weatherIcon)
+  const icon = '11d'
 
   const weatherDescription = document.querySelector('.weather-info_description');
   weatherDescription.textContent = capitalizeWord(renderedData.description);
@@ -19,9 +27,38 @@ function renderWeatherInformation (renderedData, units) {
   const time = document.querySelector('.weather-info_time');
   time.textContent = formatTime(renderedData.dt, renderedData.timezone)
   const temperature = document.querySelector('.weather-info_temperature');
-  temperature = `${Math.round(renderedData.temperature)} ${tempUnit}`
+  temperature.textContent = `${Math.round(renderedData.temperature)} ${tempUnit}`;
+  const weatherIcon = document.getElementById('weather-info_img');
+  
+  weatherIcon.src = `http://openweathermap.org/img/wn/${icon}@2x.png`
+}
+
+function renderWeatherDetails(renderedData, units) {
+  let tempUnit = 'K'
+  let speedUnit = 'm/s'
+  if (units === 'imperial') {
+    tempUnit = '°F'
+    speedUnit = 'mph'
+  }
+  if (units === 'metric') {
+    tempUnit  = '°C'
+  }
+
+  const temperatureFeelsLike = document.getElementById('feels-like');
+  temperatureFeelsLike.textContent = `${Math.round(
+    renderedData.feels_like
+  )} ${tempUnit}`;
+  const humidity = document.getElementById('humidity');
+  humidity.textContent = `${renderedData.humidity} %`;
+  const chanceOfRain = document.getElementById('chance-of-rain');
+  
+  // round to 1 decimal place
+  windSpeed.textContent = `${
+    Math.round(renderedData.wind_speed * 10) / 10
+  } ${speedUnit}`;
 }
 
 export {
-  renderWeatherInformation
+  renderWeatherInformation,
+  renderWeatherDetails
 }

@@ -23,26 +23,26 @@ body {
 }
 
 .weather-info_description {
-  font-size: 4rem;
+  font-size: 2.5rem;
   line-height: 1;
   font-weight: 500;
 }
 
 .weather-info_city,
 .weather-info_country {
-  font-size: 1.8rem;
+  font-size: 1rem;
   font-weight: 500;
 }
 
 .weather-info_date, 
 .weatehr-info_time {
-  font-size: 1.4rem;
+  font-size: 1rem;
   font-weight: 500;
 }
 
 .weather-info_temperature {
-  font-size: 5rem;
-  font-weight: 700;
+  font-size: 1rem;
+  font-weight: 400;
 
 }
 
@@ -53,11 +53,18 @@ main {
 
 .weather-details {
   display: flex;
+  margin-bottom: 10px;
 }
 
 .weather-details-icon {
   width: 2rem;
+  margin-right: 10px;
 }
+
+.weather-details-label {
+  font-size: 0.7rem;
+}
+
 
 
 

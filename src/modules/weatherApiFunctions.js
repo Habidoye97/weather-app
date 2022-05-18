@@ -46,6 +46,8 @@ function perpareData (rawData) {
   output.pressure = rawData.main.pressure;
   output.dt = rawData.dt
   output.timezone = rawData.timezone
+  output.weatherId = rawData.weather[0].icon
+  output.feels_like = rawData.main.feels_like
 }
 
 async function getData (data) {
