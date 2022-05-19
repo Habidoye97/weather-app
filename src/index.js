@@ -1,6 +1,6 @@
 import './style.css';
 
-import { fetchWeatherInfo, output } from './modules/weatherApiFunctions';
+import { fetchWeatherInfo, output, fetchWeatherInfoWithCoord } from './modules/weatherApiFunctions';
 import { renderWeatherInformation, renderWeatherDetails } from './modules/DOMrendering';
 
 
@@ -16,6 +16,7 @@ searchBtn.addEventListener('click', async () => {
   await fetchWeatherInfo(cityName);
   renderWeatherInformation(output, 'default')
   renderWeatherDetails(output)
+  await fetchWeatherInfoWithCoord(output.lat, output.lon)
 })
 
 

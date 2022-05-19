@@ -4,6 +4,7 @@ async function fetchWeatherInfo (cityName) {
       `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&APPID=6c4d940e4de82452ff470fc4841c5d68`, 
       {mode: 'cors'})
     const data = await dataRaw.json()
+    console.log(data)
     getData(data)
   } catch (error) {
     console.log(error)
@@ -16,7 +17,7 @@ async function fetchWeatherInfoWithCoord (lat, lon) {
       `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely&appid=6c4d940e4de82452ff470fc4841c5d68`, 
       {mode: 'cors'})
     const data = await dataRaw.json()
-    return data
+    console.log(data)
   } catch(error) {
     console.log(error)
   }
@@ -46,7 +47,7 @@ function perpareData (rawData) {
   output.pressure = rawData.main.pressure;
   output.dt = rawData.dt
   output.timezone = rawData.timezone
-  output.weatherId = rawData.weather[0].icon
+  output.weatherIcon = rawData.weather[0].icon
   output.feels_like = rawData.main.feels_like
 }
 

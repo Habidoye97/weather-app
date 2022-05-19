@@ -18,7 +18,11 @@
       <div class="weather-info_date"></div>
       <div class="weather-info_time"></div>
       <div class="weather-info_temperature"></div>
-      <div class="weather-info_units"><button>Change Unit to <span class="weather-info_unit_type"></span></button></div>
+      <div class="weather-info_units">Change Unit to <br>
+        <span><button class="change-unit" id="standard">Standand</button></span>
+        <span><button class="change-unit" id="metric">Metric</button></span>
+        <span><button class="change-unit" id="imperial">Imperial</button></span>
+      </div>
       <div class="weather-info_icon"><img id="weather-info_img" sameSite="none" secure src="#" alt=""></div>
       <div class="search-weather-container">
         <input type="text" placeholder="Search Location....." id="search-weather-input">
@@ -74,7 +78,7 @@
         </div>
         <div class="weather-details-info">
           <div class="weather-details-label">Humidity</div>
-          <div class="weather-details_value"></div>
+          <div class="weather-details_value" id="humidity"></div>
         </div>
       </div>
       <div class="weather-details">
@@ -93,7 +97,7 @@
         </div>
         <div class="weather-details-info">
           <div class="weather-details-label">Chance of Rain</div>
-          <div class="weather-details_value"></div>
+          <div class="weather-details_value" id="chance-of-rain"></div>
         </div>
       </div>
       <div class="weather-details">
@@ -112,7 +116,7 @@
         </div>
         <div class="weather-details-info">
           <div class="weather-details-label">Wind Speed</div>
-          <div class="weather-details_value"></div>
+          <div class="weather-details_value" id="wind-speed"></div>
         </div>
       </div>
     </div>

@@ -13,8 +13,8 @@ function renderWeatherInformation (renderedData, units) {
     tempUnit = '°C'
   }
 
-  console.log(output.weatherIcon)
-  const icon = '11d'
+  
+  const icon = renderedData.weatherIcon
 
   const weatherDescription = document.querySelector('.weather-info_description');
   weatherDescription.textContent = capitalizeWord(renderedData.description);
@@ -30,7 +30,7 @@ function renderWeatherInformation (renderedData, units) {
   temperature.textContent = `${Math.round(renderedData.temperature)} ${tempUnit}`;
   const weatherIcon = document.getElementById('weather-info_img');
   
-  weatherIcon.src = `http://openweathermap.org/img/wn/${icon}@2x.png`
+  weatherIcon.src = `http://openweathermap.org/img/wn/${renderedData.weatherIcon}@2x.png`
 }
 
 function renderWeatherDetails(renderedData, units) {
@@ -51,7 +51,7 @@ function renderWeatherDetails(renderedData, units) {
   const humidity = document.getElementById('humidity');
   humidity.textContent = `${renderedData.humidity} %`;
   const chanceOfRain = document.getElementById('chance-of-rain');
-  
+  const windSpeed = document.getElementById('wind-speed');
   // round to 1 decimal place
   windSpeed.textContent = `${
     Math.round(renderedData.wind_speed * 10) / 10
