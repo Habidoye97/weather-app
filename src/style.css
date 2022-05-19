@@ -94,6 +94,25 @@ main {
   font-size: 0.7rem;
 }
 
+.change-forecast {
+  display: flex;
+}
+
+.change-hours {
+  display: flex;
+}
+
+.change-hours__left,
+.change-hours__right {
+  width: 0.7rem;
+  height: 0.5rem;
+}
+
+.active-unit {
+  background-color: salmon;
+  color: white;
+}
+
 
 
 

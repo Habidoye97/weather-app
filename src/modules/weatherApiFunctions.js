@@ -1,7 +1,7 @@
-async function fetchWeatherInfo (cityName) {
+async function fetchWeatherInfo (cityName, unit) {
   try {
     const dataRaw = await fetch (
-      `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&APPID=6c4d940e4de82452ff470fc4841c5d68`, 
+      `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=${unit}&APPID=6c4d940e4de82452ff470fc4841c5d68`, 
       {mode: 'cors'})
     const data = await dataRaw.json()
     console.log(data)
@@ -21,6 +21,12 @@ async function fetchWeatherInfoWithCoord (lat, lon) {
   } catch(error) {
     console.log(error)
   }
+}
+
+function getLocation() {
+  const inputName = document.getElementById('search-weather-input');
+  const cityName = inputName.value
+  return cityName
 }
 
 let output = {};
@@ -58,6 +64,7 @@ async function getData (data) {
 export {
   fetchWeatherInfo,
   fetchWeatherInfoWithCoord,
-  output
+  output,
+  getLocation
 }
 
