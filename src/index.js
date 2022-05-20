@@ -1,7 +1,8 @@
 import './style.css';
 
-import { fetchWeatherInfo, output, fetchWeatherInfoWithCoord, getLocation } from './modules/weatherApiFunctions';
-import { renderWeatherInformation, renderWeatherDetails } from './modules/DOMrendering';
+import { fetchWeatherInfo, output, fetchWeatherInfoWithCoord, getLocation, outputWithCord } from './modules/weatherApiFunctions';
+import { renderWeatherInformation, renderWeatherDetails, renderDailyForecast } from './modules/DOMrendering';
+import { fromUnixTime } from 'date-fns';
 
 
 const standardUnit = document.getElementById('standard');
@@ -46,6 +47,8 @@ async function getWeatherData(unit, initialLoad = false) {
     renderWeatherInformation(output, unit)
     renderWeatherDetails(output, unit)
     await fetchWeatherInfoWithCoord(output.lat, output.lon)
+    console.log(outputWithCord)
+    renderDailyForecast(outputWithCord, unit)
     
     changeUnit = false;
 
@@ -96,7 +99,7 @@ imperialUnit.addEventListener('click', async () => {
 getWeatherData(unit, true)
 setActiveButton(document.querySelector('#standard'));
 
-
+console.log(fromUnixTime(1653055200))
 
 
 

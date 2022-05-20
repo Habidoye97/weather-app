@@ -17,7 +17,7 @@ async function fetchWeatherInfoWithCoord (lat, lon) {
       `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely&appid=6c4d940e4de82452ff470fc4841c5d68`, 
       {mode: 'cors'})
     const data = await dataRaw.json()
-    console.log(data)
+    perpareDataFromCoord(data)
   } catch(error) {
     console.log(error)
   }
@@ -30,6 +30,7 @@ function getLocation() {
 }
 
 let output = {};
+let outputWithCord = {};
 
 function perpareData (rawData) {
   if(rawData.cod === '404') {
@@ -57,14 +58,26 @@ function perpareData (rawData) {
   output.feels_like = rawData.main.feels_like
 }
 
+function perpareDataFromCoord (rawData){
+  if(rawData.cod === '404') {
+    alert (rawData.message)
+    return
+  }
+  outputWithCord.daily = rawData.daily
+  outputWithCord.hourly = rawData.hourly
+}
+
 async function getData (data) {
   perpareData(data)
 }
+
+
 
 export {
   fetchWeatherInfo,
   fetchWeatherInfoWithCoord,
   output,
-  getLocation
+  getLocation,
+  outputWithCord
 }
 
