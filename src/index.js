@@ -5,13 +5,14 @@ import { renderWeatherInformation, renderWeatherDetails } from './modules/DOMren
 
 
 const standardUnit = document.getElementById('standard');
-const metricUnit = document.getElementById('metric');
+const metricUnit = document.querySelector('#metric');
 const imperialUnit = document.getElementById('imperial')
 const searchBtn = document.getElementById('search');
 
 let unit = 'standard'
 let initialCity = 'ibadan'
 let changeUnit = false
+let lastCity;
 
 async function getWeatherData(unit, initialLoad = false) {
   try {
@@ -19,18 +20,26 @@ async function getWeatherData(unit, initialLoad = false) {
     
     if(initialLoad) {
       cityName = initialCity
-    } else {
-      cityName = getLocation()
+      lastCity = initialCity
     }
 
-    if (!cityName) {
+    if (!initialLoad) {
+      if(changeUnit) {
+        cityName = lastCity;
+      } else {
+        cityName = getLocation()
+        if(cityName){
+          lastCity = cityName
+        }else {
+          return
+        }
+      }
+    }
+
+    console.log(lastCity)
+    if(!cityName) {
+      console.log(lastCity)
       return
-    }
-
-    let lastCity = cityName
-
-    if(changeUnit) {
-      cityName = lastCity;
     }
 
     await fetchWeatherInfo(cityName, unit)
@@ -59,27 +68,28 @@ function setActiveButton(option) {
 }
 
 searchBtn.addEventListener('click', async () => {
+  
   getWeatherData(unit)
 })
 
-standardUnit.addEventListener('click', () => {
+standardUnit.addEventListener('click', async () => {
   unit = 'standard'
   changeUnit = true
-  getWeatherData(unit)
+  await getWeatherData(unit)
   setActiveButton(document.querySelector('#standard'));
 });
 
-metricUnit.addEventListener('click', () => {
+metricUnit.addEventListener('click', async () => {
   unit = 'metric';
   changeUnit = true
-  getWeatherData(unit)
+  await getWeatherData(unit)
   setActiveButton(document.querySelector('#metric'));
 })
 
-imperialUnit.addEventListener('click', () => {
+imperialUnit.addEventListener('click', async () => {
   unit = 'imperial';
   changeUnit = true
-  getWeatherData(unit)
+  await getWeatherData(unit)
   setActiveButton(document.querySelector('#imperial'));
 })
 
