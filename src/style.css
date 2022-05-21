@@ -13,7 +13,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  padding: 2.5rem;
+  padding: 2.5rem 2.5rem 0.5rem 2.5rem;
   color: white;
   display: flex;
   flex-direction: column;
@@ -182,3 +182,31 @@ main {
   background-color: white;
 }
 
+.forcast-daily-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.forcast-daily_day {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.forcast-daily_temperature-high {
+  margin-bottom: 0.4rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.forcast-daily_temperature-low {
+  font-size: 0.7rem;
+}
+
+.forcast-daily_weather-icon {
+  width: 70%;
+}
+
+.forcast-daily_weather-icon img {
+  width: 100%;
+}
