@@ -56,6 +56,7 @@ function perpareData (rawData) {
   output.timezone = rawData.timezone
   output.weatherIcon = rawData.weather[0].icon
   output.feels_like = rawData.main.feels_like
+  output.cloudiness = rawData.clouds.all
 }
 
 function perpareDataFromCoord (rawData){

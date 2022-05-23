@@ -58,6 +58,13 @@ function renderWeatherDetails(renderedData, units) {
   windSpeed.textContent = `${
     Math.round(renderedData.wind_speed * 10) / 10
   } ${speedUnit}`;
+  const sunrise = document.getElementById('sunrise');
+  sunrise.textContent = formatTime(renderedData.sunrise, renderedData.timezone);
+  const sunset = document.getElementById('sunset');
+  sunset.textContent = formatTime(renderedData.sunset, renderedData.timezone);
+  const cloudiness = document.getElementById('cloudiness');
+  cloudiness.textContent = `${renderedData.cloudiness} %`;
+  
 }
 
 function renderDailyForecast(data, units) {
