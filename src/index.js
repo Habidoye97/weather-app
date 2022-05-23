@@ -3,6 +3,7 @@ import './style.css';
 import { fetchWeatherInfo, output, fetchWeatherInfoWithCoord, getLocation, outputWithCord } from './modules/weatherApiFunctions';
 import { renderWeatherInformation, renderWeatherDetails, renderDailyForecast } from './modules/DOMrendering';
 import { fromUnixTime } from 'date-fns';
+import weatherAppBackground from './modules/background';
 
 
 const standardUnit = document.getElementById('standard');
@@ -15,9 +16,13 @@ let initialCity = 'ibadan'
 let changeUnit = false
 let lastCity;
 
+document.querySelector('body').style.visibility = 'hidden'
+
 async function getWeatherData(unit, initialLoad = false) {
   try {
     let cityName;
+
+    
     
     if(initialLoad) {
       cityName = initialCity
@@ -46,11 +51,13 @@ async function getWeatherData(unit, initialLoad = false) {
     await fetchWeatherInfo(cityName, unit)
     renderWeatherInformation(output, unit)
     renderWeatherDetails(output, unit)
-    await fetchWeatherInfoWithCoord(output.lat, output.lon)
+    weatherAppBackground(output.description)
+    await fetchWeatherInfoWithCoord(output.lat, output.lon, unit)
     console.log(outputWithCord)
     renderDailyForecast(outputWithCord, unit)
     
     changeUnit = false;
+    document.querySelector('body').style.visibility = 'visible';
 
   } catch (error) {
     alert(error)

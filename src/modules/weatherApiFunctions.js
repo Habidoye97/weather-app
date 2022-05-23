@@ -11,10 +11,10 @@ async function fetchWeatherInfo (cityName, unit) {
   }
 };
 
-async function fetchWeatherInfoWithCoord (lat, lon) {
+async function fetchWeatherInfoWithCoord (lat, lon, unit) {
   try {
     const dataRaw= await fetch (
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely&appid=6c4d940e4de82452ff470fc4841c5d68`, 
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely&units=${unit}&appid=6c4d940e4de82452ff470fc4841c5d68`, 
       {mode: 'cors'})
     const data = await dataRaw.json()
     perpareDataFromCoord(data)

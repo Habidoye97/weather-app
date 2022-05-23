@@ -64,7 +64,7 @@ function renderDailyForecast(data, units) {
   
   let tempUnit = 'K';
 
-  if(units = 'metric'){
+  if (units === 'metric') {
     tempUnit = '°C'
   }
   

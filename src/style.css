@@ -8,7 +8,7 @@
 }
 
 body {
-  background-image: url(../dist/pexels-lisa-fotios-1107717.jpg);
+  background-image: url(./images/pexels-pixabay-209831.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -20,6 +20,42 @@ body {
   justify-content: space-between;
   font-family: 'Montserrat', sans-serif;
   height: 100vh;
+}
+
+.rain-bg {
+  background-image: url(./images/rain.jpg);
+}
+
+.cloud-bg {
+  background-image: url(./images/pexels-pixabay-209831.jpg);
+}
+
+.clear-bg {
+  background-image: url(./images/clearsky.jpg);
+}
+
+.snow-bg {
+  background-image: url(./images/snow.jpg);
+}
+
+.thunderstorm-bg {
+  background-image: url(./images/thunderstorm.jpg);
+}
+
+.mist-bg {
+  background-image: url(./images/mist.jpg);
+}
+
+.sun-bg {
+  background-image: url(./images/pexels-lisa-fotios-1107717.jpg);
+}
+
+.haze-bg {
+  background-image: url(./images/haze.jpg);
+}
+
+.other-bg {
+  background-image: url(./images/few\ clouds.jpg);
 }
 
 .weather-info {
