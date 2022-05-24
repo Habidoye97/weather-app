@@ -7,7 +7,7 @@ async function fetchWeatherInfo (cityName, unit) {
     console.log(data)
     getData(data)
   } catch (error) {
-    console.log(error)
+    perpareData(error)
   }
 };
 
@@ -18,8 +18,8 @@ async function fetchWeatherInfoWithCoord (lat, lon, unit) {
       {mode: 'cors'})
     const data = await dataRaw.json()
     perpareDataFromCoord(data)
-  } catch(error) {
-    console.log(error)
+  } catch (error) {
+    perpareData(error)
   }
 }
 
