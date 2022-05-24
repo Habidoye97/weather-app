@@ -20,7 +20,11 @@
   "homepage": "https://github.com/Habidoye97/weather-app#readme",
   "devDependencies": {
     "css-loader": "^6.7.1",
+    "eslint": "^8.16.0",
     "style-loader": "^3.3.1",
+    "stylelint": "^14.8.3",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-standard": "^25.0.0",
     "webpack-cli": "^4.9.2",
     "wepack": "^0.0.1"
   },
